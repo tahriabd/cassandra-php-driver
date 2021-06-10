@@ -1117,8 +1117,6 @@ php_driver_default_session_new(zend_class_entry *ce TSRMLS_DC)
   self->persist             = 0;
   self->default_consistency = PHP_DRIVER_DEFAULT_CONSISTENCY;
   self->default_page_size   = 5000;
-  self->keyspace            = NULL;
-  self->hash_key            = NULL;
   PHP5TO7_ZVAL_UNDEF(self->default_timeout);
 
   PHP5TO7_ZEND_OBJECT_INIT_EX(session, default_session, self, ce);
