@@ -7,7 +7,7 @@
 #define PHP_DRIVER_MINOR        3
 #define PHP_DRIVER_RELEASE      3
 #define PHP_DRIVER_STABILITY    "devel"
-#define PHP_DRIVER_VERSION      "1.3.3-dev"
-#define PHP_DRIVER_VERSION_FULL "1.3.3-devel"
+#define PHP_DRIVER_VERSION "1.3.3"
+#define PHP_DRIVER_VERSION_FULL "1.3.3"
 
 #endif /* PHP_DRIVER_VERSION_H */
