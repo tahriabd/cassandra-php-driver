@@ -414,7 +414,6 @@ static PHP_GINIT_FUNCTION(php_driver)
   php_driver_globals->uuid_gen_pid        = 0;
   php_driver_globals->persistent_clusters = 0;
   php_driver_globals->persistent_sessions = 0;
-  php_driver_globals->persistent_prepared_statements = 0;
   PHP5TO7_ZVAL_UNDEF(php_driver_globals->type_varchar);
   PHP5TO7_ZVAL_UNDEF(php_driver_globals->type_text);
   PHP5TO7_ZVAL_UNDEF(php_driver_globals->type_blob);
