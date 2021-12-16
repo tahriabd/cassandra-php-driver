@@ -1,0 +1,20 @@
+[package]
+name = "php-cassandra-driver"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "php_cassandra"
+crate-type = ["cdylib","staticlib"]
+
+[dependencies]
+ext-php-rs = "0.7.3"
+
+[profile.release]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+lto = true
+panic = 'unwind'
+incremental = true

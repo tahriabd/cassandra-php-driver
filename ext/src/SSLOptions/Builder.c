@@ -125,7 +125,9 @@ PHP_METHOD(SSLOptionsBuilder, withTrustedCerts)
       PHP5TO7_MAYBE_EFREE(args);
     }
 
-    php_stat(Z_STRVAL_P(path), Z_STRLEN_P(path), FS_IS_R, &readable TSRMLS_CC);
+    zend_string* path_str = zend_string_init(Z_STRVAL_P(path), Z_STRLEN_P(path), false);
+    php_stat(path_str, FS_IS_R, &readable TSRMLS_CC);
+    zend_string_release(path_str);
 
     if (PHP5TO7_ZVAL_IS_FALSE_P(&readable)) {
       zend_throw_exception_ex(php_driver_invalid_argument_exception_ce, 0 TSRMLS_CC,
@@ -185,7 +187,9 @@ PHP_METHOD(SSLOptionsBuilder, withClientCert)
     return;
   }
 
-  php_stat(client_cert, client_cert_len, FS_IS_R, &readable TSRMLS_CC);
+  zend_string* client_cert_str = zend_string_init(client_cert, client_cert_len, false);
+  php_stat(client_cert_str, FS_IS_R, &readable TSRMLS_CC);
+  zend_string_release(client_cert_str);
 
   if (PHP5TO7_ZVAL_IS_FALSE_P(&readable)) {
     zend_throw_exception_ex(php_driver_invalid_argument_exception_ce, 0 TSRMLS_CC,
@@ -215,7 +219,9 @@ PHP_METHOD(SSLOptionsBuilder, withPrivateKey)
     return;
   }
 
-  php_stat(private_key, private_key_len, FS_IS_R, &readable TSRMLS_CC);
+  zend_string* private_key_str = zend_string_init(private_key, private_key_len, false);
+  php_stat(private_key_str, FS_IS_R, &readable TSRMLS_CC);
+  zend_string_release(private_key_str);
 
   if (PHP5TO7_ZVAL_IS_FALSE_P(&readable)) {
     zend_throw_exception_ex(php_driver_invalid_argument_exception_ce, 0 TSRMLS_CC,

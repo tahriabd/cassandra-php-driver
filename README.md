@@ -1,5 +1,3 @@
-:warning: **The PHP driver is in maintenance mode. We are still accepting pull-requests and we will occasionally release critical bug fixes, but no ongoing active development is being done currently.**
-
 # DataStax PHP Driver for Apache Cassandra
 
 [![Build Status: Linux](https://travis-ci.org/datastax/php-driver.svg)](https://travis-ci.org/datastax/php-driver)
@@ -21,7 +19,7 @@ multiple versions of PHP, can be obtained from [DataStax download server]. The
 source code is made available via [GitHub]. __If you're using [DataStax Enterprise]
 use the [DSE PHP driver] instead__.
 
-__Note__: The driver extension is a wrapper around the 
+__Note__: The driver extension is a wrapper around the
           [DataStax C/C++ Driver for Apache Cassandra] and is a requirement for proper
           installation of the PHP extension binaries. Ensure these dependencies are met before proceeding.
 
@@ -43,8 +41,8 @@ This driver works exclusively with the Cassandra Query Language v3 (CQL3) and
 Cassandra's native protocol. The current version works with:
 
 * Apache Cassandra versions 2.1, 2.2 and 3.0+
-* PHP 5.6, PHP 7.0, and PHP 7.1
-  * 32-bit (x86) and 64-bit (x64)
+* PHP >= 8.0
+  * 64-bit (x64)
   * Thread safe (TS) and non-thread safe (NTS)
 * Compilers: GCC 4.1.2+, Clang 3.4+, and MSVC 2010/2012/2013/2015
 
@@ -109,9 +107,8 @@ For your convenience a `Vagrantfile` with configuration ready for testing is
 available. To execute tests, run the following:
 
 ```bash
-git clone https://github.com/datastax/php-driver.git
+git clone --recursive https://github.com/datastax/php-driver.git
 cd php-driver
-git submodule update --init
 vagrant up
 vagrant ssh
 ```

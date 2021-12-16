@@ -497,14 +497,10 @@ void php_driver_define_UserTypeValue(TSRMLS_D)
 #if PHP_VERSION_ID >= 50400
   php_driver_user_type_value_handlers.std.get_gc          = php_driver_user_type_value_gc;
 #endif
-#if PHP_MAJOR_VERSION >= 8
   php_driver_user_type_value_handlers.std.compare = php_driver_user_type_value_compare;
-#else
-  php_driver_user_type_value_handlers.std.compare_objects = php_driver_user_type_value_compare;
-#endif
   php_driver_user_type_value_ce->ce_flags |= PHP5TO7_ZEND_ACC_FINAL;
   php_driver_user_type_value_ce->create_object = php_driver_user_type_value_new;
-  zend_class_implements(php_driver_user_type_value_ce TSRMLS_CC, 2, spl_ce_Countable, zend_ce_iterator);
+  zend_class_implements(php_driver_user_type_value_ce TSRMLS_CC, 2, zend_ce_countable, zend_ce_iterator);
 
   php_driver_user_type_value_handlers.hash_value = php_driver_user_type_value_hash_value;
   php_driver_user_type_value_handlers.std.clone_obj = NULL;
