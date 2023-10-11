@@ -1,4 +1,4 @@
-FROM php:8.0
+FROM php:8.3.0beta3
 
 ENV EXT_CASSANDRA_VERSION=master
 
